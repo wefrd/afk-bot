@@ -28,9 +28,9 @@ function startBot() {
 
 startBot();
 
-const http = require('http');
-http.createServer((req, res) => res.end('Bot Aktif')).listen(process.env.PORT || 3000);
-const http = require('http');
-http.createServer((req, res) => res.end('Bot Aktif')).listen(process.env.PORT || 3000);
-const http = require('http');
-http.createServer((req, res) => res.end('Bot Aktif')).listen(process.env.PORT || 3000);
+const expressServer = require('http');
+expressServer.createServer((req, res) => res.end('Bot Aktif')).listen(process.env.PORT || 3000);
+const expressServer = require('http');
+expressServer.createServer((req, res) => res.end('Bot Aktif')).listen(process.env.PORT || 3000);
+const expressServer = require('http');
+expressServer.createServer((req, res) => res.end('Bot Aktif')).listen(process.env.PORT || 3000);
