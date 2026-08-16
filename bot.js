@@ -5,13 +5,14 @@ function startBot() {
     host: 'ereftek.aternos.me', 
     port: 25565,                           
     username: 'AFK_Botu',
-    version: '1.21.4' // Paper 26.2 build'ine karşılık gelen Minecraft sürümü
+    checkTimeoutInterval: 60 * 1000,
+    versionCheck: false // Sunucunun gönderdiği hatalı sürüm kontrolünü devre dışı bırakır
   });
 
   bot.on('spawn', () => {
     console.log('✅ Bot başarıyla oyuna girdi!');
     
-    // Botun AFK kalıp atılmaması için 10 saniyede bir zıplamasını sağlar
+    // Botun AFK'dan düşmemesi için 10 saniyede bir zıplamasını sağlar
     setInterval(() => {
       bot.setControlState('jump', true);
       setTimeout(() => bot.setControlState('jump', false), 500);
@@ -28,9 +29,6 @@ function startBot() {
 
 startBot();
 
-const expressServer = require('http');
-expressServer.createServer((req, res) => res.end('Bot Aktif')).listen(process.env.PORT || 3000);
-const expressServer = require('http');
-expressServer.createServer((req, res) => res.end('Bot Aktif')).listen(process.env.PORT || 3000);
-const expressServer = require('http');
-expressServer.createServer((req, res) => res.end('Bot Aktif')).listen(process.env.PORT || 3000);
+require('http').createServer((req, res) => res.end('Bot Aktif')).listen(process.env.PORT || 3000);
+require('http').createServer((req, res) => res.end('Bot Aktif')).listen(process.env.PORT || 3000);
+require('http').createServer((req, res) => res.end('Bot Aktif')).listen(process.env.PORT || 3000);
