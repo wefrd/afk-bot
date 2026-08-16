@@ -5,14 +5,13 @@ function startBot() {
     host: 'ereftek.aternos.me', 
     port: 25565,                           
     username: 'AFK_Botu',
-    checkTimeoutInterval: 60 * 1000,
-    versionCheck: false // Sunucunun gönderdiği hatalı sürüm kontrolünü devre dışı bırakır
+    version: '1.21.4' // Paper 26.2 build'ine karşılık gelen Minecraft sürümü
   });
 
   bot.on('spawn', () => {
     console.log('✅ Bot başarıyla oyuna girdi!');
     
-    // Botun AFK'dan düşmemesi için 10 saniyede bir zıplamasını sağlar
+    // Botun AFK kalıp atılmaması için 10 saniyede bir zıplamasını sağlar
     setInterval(() => {
       bot.setControlState('jump', true);
       setTimeout(() => bot.setControlState('jump', false), 500);
