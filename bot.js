@@ -2,25 +2,23 @@ const mineflayer = require('mineflayer');
 
 function createBot() {
   const bot = mineflayer.createBot({
-    host: 'ereftek.aternos.me', // Aternos IP adresin
-    port: 25565,                         // Port numaran
-    username: 'AFK_Bot',
-    version: '1.20.1'                    // Sunucu sürümün
+    host: 'ereftek.aternos.me', // Sunucu adresin
+    port: 28095,                // Aternos'un sana verdiği port
+    username: 'AFK_Bot',        // Botun oyundaki adı
+    version: '1.20.1'           // Sunucunun Minecraft sürümü
   });
 
   bot.on('login', () => {
     console.log('✅ Bot başarıyla oyuna girdi!');
   });
 
-  // Aternos AFK korumasını atlatmak için rastgele yürüme ve dönme hareketi
+  // Aternos AFK atmasını önlemek için hareketler
   bot.on('spawn', () => {
     setInterval(() => {
-      // Rastgele bakış açısı değiştir
       const yaw = Math.random() * Math.PI * 2;
       const pitch = (Math.random() - 0.5) * Math.PI;
       bot.look(yaw, pitch, true);
 
-      // İleri yürü ve zıpla
       bot.setControlState('forward', true);
       bot.setControlState('jump', true);
 
@@ -28,20 +26,20 @@ function createBot() {
         bot.setControlState('forward', false);
         bot.setControlState('jump', false);
       }, 1000);
-    }, 15000); // 15 saniyede bir rastgele hareket eder
+    }, 15000);
   });
 
   bot.on('end', (reason) => {
-    console.log(`⚠️ Bağlantı kesildi (${reason}), 15 saniye sonra tekrar deneniyor...`);
+    console.log(`⚠️ Bağlantı kesildi (${reason}), 15 saniye sonra tekrar bağlanılıyor...`);
     setTimeout(createBot, 15000);
   });
 
   bot.on('error', (err) => {
-    console.log('Hata oluştu:', err);
+    console.log('Hata oluştu:', err.message);
   });
 }
 
-// Render kapanma uyarısını engellemek için port dinleyici
+// Render servisinin kapanmasını önleyen port dinleyicisi
 require('http').createServer((req, res) => res.end('Bot Aktif')).listen(process.env.PORT || 10000);
 
 createBot();
