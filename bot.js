@@ -28,7 +28,3 @@ function startBot() {
 }
 
 startBot();
-
-require('http').createServer((req, res) => res.end('Bot Aktif')).listen(process.env.PORT || 3000);
-require('http').createServer((req, res) => res.end('Bot Aktif')).listen(process.env.PORT || 3000);
-require('http').createServer((req, res) => res.end('Bot Aktif')).listen(process.env.PORT || 3000);
