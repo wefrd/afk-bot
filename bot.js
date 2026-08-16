@@ -2,7 +2,7 @@ const mineflayer = require('mineflayer');
 
 function createBot() {
   const bot = mineflayer.createBot({
-    host: 'sunucu-adresin.aternos.me', // Aternos IP adresin
+    host: 'ereftek.aternos.me', // Aternos IP adresin
     port: 25565,                         // Port numaran
     username: 'AFK_Bot',
     version: '1.20.1'                    // Sunucu sürümün
